@@ -25,7 +25,7 @@ class DebuggerPlugin extends Plugin {
 	 * @return string The common name of this plugin
 	 */
 	public function getName() {
-		return "Debugger Tools";	
+		return "The Debugger";	
 	}
 	
 	/**

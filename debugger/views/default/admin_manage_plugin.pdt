@@ -1,0 +1,67 @@
+
+        <?php
+        $this->Widget->clear();
+        $this->Widget->create($this->_('AdminManagePlugin.index.boxtitle_phpids', true));
+        $this->Form->create();
+        ?>
+
+        <div class="inner">
+
+            <div class="title_row first">
+                <h3><?php $this->_('AdminManagePlugin.index.heading_general');?></h3>
+            </div>
+
+            <div class="pad">
+                <ul>
+                    <li>
+                        <?php
+                        $this->Form->fieldCheckbox(
+							'enable_plugin', 
+							'true', 
+							$this->Html->ifSet($vars->enable_plugin) == 'true', 
+							['id' => 'enable_plugin']
+						);
+                        $this->Form->label(
+							$this->_('AdminManagePlugin.index.field.enable_plugin', true), 
+							'enable_plugin', 
+							['class' => 'inline']
+						);
+                        ?>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="title_row">
+                <h3><?php $this->_('AdminManagePlugin.index.heading_debuggers');?></h3>
+            </div>
+
+            <div class="pad">
+                <ul>
+                    <li>
+                        <?php
+                        $this->Form->label(
+							$this->_('AdminManagePlugin.index.field.used_class', true), 
+							'used_class'
+						);
+                        $this->Form->fieldSelect(
+							'used_class', 
+							$this->Html->ifSet($debuggers), 
+							$this->Html->ifSet($vars->used_class), 
+							['id' => 'used_class', 'class' => 'small']
+						);
+                        ?>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="button_row">
+                <?php
+                $this->Form->fieldSubmit('save', $this->_('AdminManagePlugin.index.field.submit', true), ['class' => 'btn btn-primary pull-right']);
+                ?>
+            </div>
+        </div>
+        <?php
+        $this->Form->end();
+        $this->Widget->end();
+        ?>
